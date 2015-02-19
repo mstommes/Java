@@ -1,0 +1,96 @@
+public class PrintName
+{
+    // instance variables - replace the example below with your own
+    private String firstName;
+    private String lastName;
+    private String street;
+    private String city;
+    private String stateAbbrev;
+    private String zipCode;
+    private String email; 
+  
+
+    /*new constructor*/
+    public PrintName()
+    {
+        // iniString firstName;
+     firstName="";
+     lastName="";
+     street="";
+     city="";
+     stateAbbrev="";
+     zipCode="";
+     email="";
+    }
+    
+  
+    public PrintName(String email1)
+    {
+      firstName="";
+      lastName="";
+      street="";
+      city="";
+      stateAbbrev="";
+      zipCode="";
+      email=email1;
+    }
+    
+    public void setName(String firstName1, String lastName1)   
+    {
+       firstName=firstName1;
+       lastName=lastName1;
+    }
+    
+    
+    public void setAddress(String street1, String city1, String stateAbbrev1, String zipCode1)  
+    {
+      street=street1;
+      city=city1;
+      stateAbbrev=stateAbbrev1;
+      zipCode=zipCode1;
+    }
+    
+    /*print format:
+     * Name: Fred Smith
+     * Address: 123 Main St, Anytown, MN 55432
+     * E-mail: fred.smith@gmail.com*/
+    
+    public void print()   
+    {
+      System.out.println("Name: " + firstName+ " " + lastName);
+      System.out.println("Address:" + street+ " " + city + " "+ stateAbbrev + " "+zipCode);
+        
+        
+      if(email.length()>0)
+      {
+  
+       System.out.println("Email:" + email);
+      }
+    }
+    
+    /*
+     * Create a new Person object for a person with an e-mail address.
+     * Set all the attributes for the person.
+     * Print out the person's data (see Output Format below).
+     * Repeat Steps 1-3 for a person without an e-mail address.
+     * Output Format
+     */
+    
+   public static void main(String[] args)
+    
+    {
+        
+        
+        PrintName name1 = new PrintName();
+        
+        name1.setName("Maria", "Stommes");
+        name1.setAddress("1234 Lake Street", "Minneapolis", "MN", "55408");
+        name1.print();
+        
+        
+        PrintName name2 = new PrintName("maria@me.com");
+        name2.setName("Maria", "Stommes");
+        name2.setAddress("1234 Lake Street", "Minneapolis", "MN", "55408");
+        name2.print();    
+    }
+}
