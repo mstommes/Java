@@ -1,0 +1,115 @@
+import java.util.ArrayList;
+/*
+
+Do the following:
+Change the implementation to store the prices of each individual item. 
+Hint: This will require a single instance
+variable of type ArrayList<Double>. Call it itemList.
+Add the constructor -- a special kind of method (shown below) -- which we will talk about soon.
+Add a method void displayAll() that displays the prices of all items in the current sale.
+Modify your main() method to call displayAll() after you have added two items to the current sale.
+ */
+ 
+ 
+ 
+public class CashRegisterTwo
+{
+    // instance variables 
+    //removing these because the ArrayList now does this: private int itemCount;
+    //private double totalCost;
+    private ArrayList <Double> itemList;
+
+    //Public interface/specification
+    public void addItem(double price)
+    {
+       itemList.add(price);
+       System.out.println();
+     }
+    
+    public double getTotal()
+    {
+       double total=0;
+       for (int i=0; i<itemList.size(); i++)
+       {
+           total=total+itemList.get(i);
+       }
+       return total; 
+      
+     }
+    
+    public int getNumberItems()
+    {
+        return itemList.size();
+        
+    }
+    
+     public void clear()
+    {
+        itemList = new ArrayList<Double>();
+    
+    }
+    
+    //constructor
+     public CashRegisterTwo()
+     {
+       itemList = new ArrayList<Double>();
+    }
+    
+     public void displayAll()
+    {
+       for (int i=0; i<itemList.size(); i++)
+       {
+           if (i>0)
+           {
+              System.out.print(", ");
+           }
+           System.out.print(itemList.get(i));
+       }
+        System.out.println();
+    }
+    
+    public static void main(String[] args)
+    {
+    /*Use the main() method to test your class.  Your main() method should test all the methods 
+     * in CashRegister, by doing the following:*/
+    
+     // create a CashRegister object
+     
+     CashRegisterTwo reg = new CashRegisterTwo();
+     
+     // add two items
+     
+     reg.addItem(1.00);
+     reg.addItem(2.00);
+     
+      
+    
+     
+    //print the count and the total with a meaningful message, like: "The total of 2 item(s) is 4.95"
+    
+     System.out.printf("The total of the %d items is: %.2f\n", reg.getNumberItems(),reg.getTotal()); 
+     
+     //print a debugging message with the expected count and total
+     
+      System.out.println("The expected count and total should be: 2 items and 3.00 total");
+     
+     //clear the register for the next purchase
+     reg.displayAll();
+     reg.clear();
+     
+     //add one item
+     reg.addItem(5.00);
+     
+     System.out.printf("The total of the %d items is: %.2f\n", reg.getNumberItems(),reg.getTotal()); 
+      
+     
+     //print a debugging message with the expected count and total
+   
+    System.out.println("The expected count and total should now be: 1 item and 5.00 total");
+   
+    reg.displayAll();
+     
+    
+  }
+    
+}
